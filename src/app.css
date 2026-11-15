@@ -1,0 +1,165 @@
+@import '@fontsource/fira-sans/400.css';
+@import '@fontsource/fira-sans/500.css';
+@import '@fontsource/fira-mono/400.css';
+@import '@fontsource/dm-serif-display/400.css';
+
+/* Colour tokens mirror the dark theme on svelte.dev/docs */
+:root {
+	color-scheme: dark;
+
+	--sk-bg-hue: 220;
+
+	--sk-fg-1: hsl(var(--sk-bg-hue), 2%, 90%);
+	--sk-fg-2: hsl(var(--sk-bg-hue), 3%, 80%);
+	--sk-fg-3: hsl(var(--sk-bg-hue), 5%, 65%);
+	--sk-fg-4: hsl(var(--sk-bg-hue), 5%, 55%);
+	--sk-fg-accent: hsl(130, 53%, 52%);
+	--sk-fg-accent-neg: hsl(0, 62%, 42%);
+
+	--sk-bg-0: hsl(var(--sk-bg-hue), 8%, 10%);
+	--sk-bg-1: hsl(var(--sk-bg-hue), 10%, 12%);
+	--sk-bg-2: hsl(var(--sk-bg-hue), 12%, 14%);
+	--sk-bg-3: hsl(var(--sk-bg-hue), 14%, 16%);
+	--sk-bg-4: hsl(var(--sk-bg-hue), 15%, 21%);
+	--sk-bg-accent: hsl(120, 47%, 39%);
+	--sk-bg-highlight: hsl(60, 100%, 15%);
+
+	--sk-border: hsl(var(--sk-bg-hue), 15%, 22%);
+	--sk-shadow: drop-shadow(1px 2px 16px rgba(0, 0, 0, 0.5));
+
+	--sk-font-family-ui: 'Fira Sans', -apple-system, sans-serif;
+	--sk-font-family-heading: 'Fira Sans', sans-serif;
+	--sk-font-family-mono: 'Fira Mono', monospace;
+
+	--sk-font-ui-small: 400 1.3rem / 1.5 var(--sk-font-family-ui);
+	--sk-font-ui-medium: 400 1.6rem / 1.5 var(--sk-font-family-ui);
+	--sk-font-h2: 400 3rem / 1.2 var(--sk-font-family-heading);
+	--sk-font-h3: 400 2.4rem / 1.2 var(--sk-font-family-heading);
+	--sk-font-mono: 400 1.4rem / 1.7 var(--sk-font-family-mono);
+
+	--radius: 0.6rem;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%; /* 1rem = 10px, same as svelte.dev */
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	margin: 0;
+	background: var(--sk-bg-1);
+	color: var(--sk-fg-2);
+	font: var(--sk-font-ui-medium);
+}
+
+h1,
+h2,
+h3 {
+	color: var(--sk-fg-1);
+	font-weight: 400;
+}
+
+a {
+	color: var(--sk-fg-accent);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+::selection {
+	background: hsla(204, 100%, 63%, 0.3);
+}
+
+.panel {
+	background: var(--sk-bg-2);
+	border: 1px solid var(--sk-border);
+	border-radius: var(--radius);
+}
+
+input,
+select,
+textarea {
+	width: 100%;
+	font: var(--sk-font-ui-medium);
+	color: var(--sk-fg-1);
+	background: var(--sk-bg-0);
+	border: 1px solid var(--sk-border);
+	border-radius: var(--radius);
+	padding: 0.7rem 1rem;
+}
+textarea {
+	resize: vertical;
+	min-height: 7rem;
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--sk-fg-accent);
+	outline-offset: 1px;
+}
+
+button {
+	font: var(--sk-font-ui-medium);
+	font-size: 1.4rem;
+	color: var(--sk-fg-1);
+	background: var(--sk-bg-4);
+	border: 1px solid var(--sk-border);
+	border-radius: var(--radius);
+	padding: 0.6rem 1.2rem;
+	cursor: pointer;
+}
+button:hover:not(:disabled) {
+	background: var(--sk-bg-3);
+	border-color: var(--sk-fg-4);
+}
+button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+button.primary {
+	background: var(--sk-bg-accent);
+	border-color: var(--sk-bg-accent);
+	color: white;
+}
+button.primary:hover:not(:disabled) {
+	background: hsl(15, 100%, 42%);
+	border-color: hsl(15, 100%, 42%);
+}
+button.danger:hover:not(:disabled) {
+	border-color: var(--sk-fg-accent);
+	color: var(--sk-fg-accent);
+}
+button.link {
+	background: none;
+	border: none;
+	padding: 0;
+	color: var(--sk-fg-3);
+	font-size: 1.3rem;
+}
+button.link:hover:not(:disabled) {
+	background: none;
+	color: var(--sk-fg-accent);
+	text-decoration: underline;
+}
+
+.muted {
+	color: var(--sk-fg-3);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
